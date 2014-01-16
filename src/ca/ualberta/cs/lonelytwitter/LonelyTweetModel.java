@@ -17,8 +17,11 @@ public abstract class LonelyTweetModel{
 		timestamp = new Date();
 	}
 	
-	public void setText(String text){
-		this.text = text;
+	public void setText(String text) throws Exception {
+		if (text.length() > 140){
+			throw new IllegalArgumentException();
+		}
+			this.text = text;
 	}
 	
 	public String getText(){
